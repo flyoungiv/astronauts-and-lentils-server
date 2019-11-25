@@ -8,15 +8,12 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 
 app.get('/flights', function (req, res) {
     const { landSuccess, reused, withReddit } = req.query
-    console.log(landSuccess)
-    console.log(reused)
-    console.log(withReddit)
 
     const checkFlightCriteria = flight => {
         const landSuccessCheck = landSuccess === 'true'
