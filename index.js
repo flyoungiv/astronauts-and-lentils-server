@@ -8,6 +8,8 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
 
 app.get('/flights', function (req, res) {
@@ -55,4 +57,4 @@ app.get('/flights/year/:year', function (req, res) {
     )
 })
 
-app.listen(3001)
+app.listen(PORT)
